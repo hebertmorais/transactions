@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { TransactionDetailsComponent } from './components/transaction-details/transaction-details.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
