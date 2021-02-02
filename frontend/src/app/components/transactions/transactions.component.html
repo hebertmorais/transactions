@@ -1,3 +1,8 @@
-<a routerLink="/transactions/1" routerLinkActive="active">Transaction Detail</a>
-<br>
+<h1>Olá {{ currentCnpj }}</h1>
 <a routerLink="/" routerLinkActive="active">Home</a>
+<ul>
+  <li *ngFor="let transaction of transactions">
+    {{ transaction.descricao }} || <span>{{ transaction.valor }}</span>
+    <a [routerLink]="'/transactions/' + transaction.id  ">Ver mais</a>
+  </li>
+</ul>

@@ -1,1 +1,7 @@
-<a routerLink="/transactions" routerLinkActive="active">Transactions</a>
+<input [(ngModel)]="cnpjInput" name="input" />
+<button (click)="addCnpj()">Adicionar CNPJ</button>
+<ul>
+  <li *ngFor="let cnpj of cnpjList">
+    <a  [routerLink]="" (click)="openTransactions(cnpj)">{{ cnpj }}</a>
+  </li>
+</ul>
