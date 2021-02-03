@@ -8,8 +8,8 @@
         </button>
       </mat-card>
     </li>
-    <li class="cnpj-item" *ngFor="let cnpj of cnpjList">
-      <mat-card (click)="openTransactions(cnpj)">{{ cnpj }}</mat-card>
+    <li class="cnpj-item" *ngFor="let establishment of establishments">
+      <mat-card (click)="openTransactions(establishment.cnpj)">{{ establishment.cnpj }}</mat-card>
     </li>
   </ul>
 </div>

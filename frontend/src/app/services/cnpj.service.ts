@@ -1,19 +1,36 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { Establishment } from '../models/establishment.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CnpjService {
   CNPJ_KEY = 'CNPJ';
+  BASE_URL = 'http://localhost:3000';
 
   private _currentCnpj: string = '';
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this._currentCnpj = localStorage.getItem(this.CNPJ_KEY) || '';
   }
 
   get currentCnpj() {
     return this._currentCnpj;
+  }
+
+  getAllEstablishments() {
+    return this.http.get(`${this.BASE_URL}/establishments`);
+  }
+
+  addEstablishment(establishment: Establishment) {
+    return this.http.post<Establishment>(
+      `${this.BASE_URL}/establishments`,
+      establishment,
+      {}
+    );
   }
 
   setCurrentCnpj(cnpj: string) {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Establishment } from 'src/app/models/establishment.model';
 import { CnpjService } from 'src/app/services/cnpj.service';
 
 @Component({
@@ -9,14 +10,25 @@ import { CnpjService } from 'src/app/services/cnpj.service';
 })
 export class HomeComponent implements OnInit {
   cnpjInput: string = '';
-  cnpjList: Set<string> = new Set();
+  establishments: Establishment[] = [];
 
   constructor(private cnpjService: CnpjService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cnpjService.getAllEstablishments().subscribe((data: any) => {
+      console.log(data);
+      this.establishments = data;
+    });
+  }
 
   addCnpj() {
-    this.cnpjList.add(this.cnpjInput);
+    //this.establishments.push(this.cnpjInput);
+    const newEstablishment = { cnpj: this.cnpjInput };
+    this.cnpjService
+      .addEstablishment(newEstablishment)
+      .subscribe((data: any) => {
+        this.establishments.push(data);
+      });
   }
 
   openTransactions(cnpj: string) {
