@@ -1,0 +1,17 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "estabelecimento": "64.809.799/0001-44",
+      "cliente": "266.128.190-81",
+      "valor": 50,
+      "descricao": "Almoço em restaurante"
+    }
+  ],
+  "establishments": [
+    {
+      "id": 1,
+      "cnpj": "64.809.799/0001-44"
+    }
+  ]
+}
