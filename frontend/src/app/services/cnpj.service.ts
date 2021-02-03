@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Establishment } from '../models/establishment.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CnpjService {
   CNPJ_KEY = 'CNPJ';
-  BASE_URL = 'https://shipay.herokuapp.com';
 
   private _currentCnpj: string = '';
 
@@ -20,12 +20,12 @@ export class CnpjService {
   }
 
   getAllEstablishments() {
-    return this.http.get(`${this.BASE_URL}/establishments`);
+    return this.http.get(`${environment.BASE_URL}/establishments`);
   }
 
   addEstablishment(establishment: Establishment) {
     return this.http.post<Establishment>(
-      `${this.BASE_URL}/establishments`,
+      `${environment.BASE_URL}/establishments`,
       establishment,
       {}
     );
