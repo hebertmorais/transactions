@@ -5,6 +5,28 @@ table th {
 button {
   float: right;
 }
+
+mat-form-field {
+  width: 40%;
+  min-width: 250px;
+  max-width: 350px;
+  display: flex;
+}
+mat-form-field input {
+  height: 30px;
+  width: 100%;
+  background: #595959;
+  border: none;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  color: white;
+  padding: 4px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+mat-form-field inputinput:focus {
+  outline: none;
+}
 #page-title {
   text-align: center;
 }

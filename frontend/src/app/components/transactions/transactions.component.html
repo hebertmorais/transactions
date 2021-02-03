@@ -1,6 +1,10 @@
 <div class="main-container">
   <h1 id="page-title">CNPJ: {{ currentCnpj }}</h1>
-  <div *ngIf="transactions.length" class="transactions-table-container">
+  <div *ngIf="transactions.data.length" class="transactions-table-container">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Busque por descrição ou cliente" #input>
+    </mat-form-field>
+
     <table
       #transactionsTable
       mat-table
@@ -30,10 +34,13 @@
         *matRowDef="let row; columns: displayedColumns"
         [routerLink]="'/transactions/' + row.id"
       ></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Nenhuma transação encontrada para a busca: "{{input.value}}"</td>
+      </tr>
     </table>
     <a id="back-link" routerLink="/" routerLinkActive="active">Home</a>
   </div>
-  <div class="empty-state" *ngIf="!transactions.length">
+  <div class="empty-state" *ngIf="!transactions.data.length">
     <span>Adicione sua primeira transação</span>
   </div>
   <div class="example-button-container">

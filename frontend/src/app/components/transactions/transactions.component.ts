@@ -4,7 +4,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { MatTable } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Transaction } from 'src/app/models/transaction.model';
 import { CnpjService } from 'src/app/services/cnpj.service';
 import { TransactionsService } from 'src/app/services/transactions.service';
@@ -20,7 +20,7 @@ export class TransactionsComponent implements OnInit {
     | undefined;
 
   currentCnpj: string = '';
-  transactions: Transaction[] = [];
+  transactions = new MatTableDataSource();
   displayedColumns = ['descricao', 'cliente', 'valor'];
 
   constructor(
@@ -34,7 +34,9 @@ export class TransactionsComponent implements OnInit {
     this.transactionsService
       .getAllTransactionsFromCnpj(this.currentCnpj)
       .subscribe((data: any) => {
-        this.transactions = data;
+        this.transactions.data = data;
+        if (this.transactionsTable) this.transactionsTable.renderRows();
+        console.log("data", this.transactions, data);
       });
   }
 
@@ -54,13 +56,18 @@ export class TransactionsComponent implements OnInit {
       if (transaction) {
         this.transactionsService
           .addTransaction(transaction)
-          .subscribe((data: any) => {
-            this.transactions.push(data);
+          .subscribe((transactionRes: any) => {
+            this.transactions.data.push(transactionRes);
             if (this.transactionsTable) this.transactionsTable.renderRows();
           });
       }
       console.log('The dialog was closed', result, this.transactions);
     });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.transactions.filter = filterValue.trim().toLowerCase();
   }
 }
 
