@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class TransactionsService {
-  BASE_URL = 'https://shipay.herokuapp.com/transactions';
+  BASE_URL = 'https://shipay.herokuapp.com';
 
   constructor(private http: HttpClient) {}
 
