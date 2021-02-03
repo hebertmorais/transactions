@@ -1,15 +1,23 @@
 <h2>Adicionar Transação</h2>
 <ul>
   <li>
-    <label>Descrição</label>
-    <input placeholder="Ex: Almoço em Restaurante" matInput [(ngModel)]="data.descricao" />
+    <label>Descrição *</label>
+    <input
+      placeholder="Ex: Almoço em Restaurante"
+      matInput
+      [(ngModel)]="data.descricao"
+    />
   </li>
   <li>
-    <label>Cliente</label>
-    <input placeholder="Ex: 098.561.660-12" matInput [(ngModel)]="data.cliente" />
+    <label>Cliente *</label>
+    <input
+      placeholder="Ex: 098.561.660-12"
+      matInput
+      [(ngModel)]="data.cliente"
+    />
   </li>
   <li>
-    <label>Valor</label>
+    <label>Valor *</label>
     <input placeholder="Ex: R$ 50,00" matInput [(ngModel)]="data.valor" />
   </li>
   <li>
@@ -19,6 +27,7 @@
       mat-raised-button
       color="primary"
       mat-dialog-close
+      [disabled]="!data.descricao || !data.valor || !data.cliente"
     >
       Adicionar
     </button>
