@@ -50,14 +50,14 @@ export class TransactionsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
+      const transaction = { ...result, data: new Date().toISOString() };
+      if (transaction) {
         this.transactionsService
-          .addTransaction(result)
+          .addTransaction(transaction)
           .subscribe((data: any) => {
             this.transactions.push(data);
+            if (this.transactionsTable) this.transactionsTable.renderRows();
           });
-        this.transactions.push(result);
-        if (this.transactionsTable) this.transactionsTable.renderRows();
       }
       console.log('The dialog was closed', result, this.transactions);
     });

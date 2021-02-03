@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     TransactionsComponent,
+    TransactionDetailsComponent,
     TransactionInsertComponent,
   ],
   imports: [

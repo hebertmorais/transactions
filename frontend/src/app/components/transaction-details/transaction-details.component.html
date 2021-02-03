@@ -1,5 +1,12 @@
-<a href="/transactions">Voltar para Transactions</a>
-<p><strong>Estabelecimento:</strong>  {{currentTransaction.estabelecimento}}</p>
-<p><strong>Cliente: </strong> {{currentTransaction.cliente}}</p>
-<p><strong>Descrição: </strong>  {{currentTransaction.descricao}}</p>
-<p><strong>Valor: </strong>  {{currentTransaction.valor}}</p>
+<div class="main-container">
+  <mat-card>
+    <a routerLink="/transactions">Voltar para Transactions</a>
+    <p>
+      <strong>Estabelecimento:</strong> {{ currentTransaction.estabelecimento }}
+    </p>
+    <p><strong>Cliente: </strong> {{ currentTransaction.cliente }}</p>
+    <p><strong>Descrição: </strong> {{ currentTransaction.descricao }}</p>
+    <p><strong>Valor: </strong> {{ currentTransaction.valor }}</p>
+    <p><strong>Data: </strong> {{ currentTransaction.data }}</p>
+  </mat-card>
+</div>
