@@ -5,22 +5,7 @@ import { Transaction } from '../models/transaction.model';
   providedIn: 'root',
 })
 export class TransactionsService {
-  private _transactions = [
-    {
-      id: 1,
-      estabelecimento: '45.283.163/0001-67',
-      cliente: '094.214.930-01',
-      valor: 590.01,
-      descricao: 'Almoço em restaurante chique pago via App!',
-    },
-    {
-      id: 2,
-      estabelecimento: '12.483.363/0001-27',
-      cliente: '094.214.930-01',
-      valor: 90.01,
-      descricao: 'Jantar em restaurante chique pago via App!',
-    },
-  ];
+  private _transactions: Transaction[] = [];
   constructor() {}
 
   getTransactions(): Transaction[] {

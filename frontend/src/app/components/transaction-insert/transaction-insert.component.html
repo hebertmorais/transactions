@@ -1,25 +1,26 @@
 <h2>Adicionar Transação</h2>
 <ul>
   <li>
-    <div>
-      <label>Cliente</label>
-      <input matInput [(ngModel)]="client" />
-    </div>
+    <label>Descrição</label>
+    <input placeholder="Ex: Almoço em Restaurante" matInput [(ngModel)]="data.descricao" />
   </li>
   <li>
-    <div>
-      <label>Descrição</label>
-      <input matInput [(ngModel)]="description" />
-    </div>
+    <label>Cliente</label>
+    <input placeholder="Ex: 098.561.660-12" matInput [(ngModel)]="data.cliente" />
   </li>
   <li>
-    <div>
-      <label>Valor</label>
-      <input matInput [(ngModel)]="value" />
-    </div>
+    <label>Valor</label>
+    <input placeholder="Ex: R$ 50,00" matInput [(ngModel)]="data.valor" />
   </li>
   <li>
-    <button mat-button>Cancelar</button>
-    <button mat-raised-button color="primary">Adicionar</button>
+    <button mat-dialog-close mat-button>Cancelar</button>
+    <button
+      (click)="submitDialog()"
+      mat-raised-button
+      color="primary"
+      mat-dialog-close
+    >
+      Adicionar
+    </button>
   </li>
 </ul>

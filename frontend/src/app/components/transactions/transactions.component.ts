@@ -1,18 +1,24 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import {
   MatDialog,
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { MatTable } from '@angular/material/table';
 import { Transaction } from 'src/app/models/transaction.model';
 import { CnpjService } from 'src/app/services/cnpj.service';
 import { TransactionsService } from 'src/app/services/transactions.service';
+
 @Component({
   selector: 'app-transactions',
   templateUrl: './transactions.component.html',
   styleUrls: ['./transactions.component.css'],
 })
 export class TransactionsComponent implements OnInit {
+  @ViewChild('transactionsTable') transactionsTable:
+    | MatTable<Transaction>
+    | undefined;
+
   currentCnpj: string = '';
   transactions: Transaction[] = [];
   displayedColumns = ['descricao', 'cliente', 'valor'];
@@ -31,11 +37,18 @@ export class TransactionsComponent implements OnInit {
   addTransaction(): void {
     const dialogRef = this.dialog.open(TransactionInsertComponent, {
       width: '250px',
-      data: {},
+      data: {
+        estabelecimento: this.currentCnpj,
+        cliente: '',
+        descricao: '',
+        valor: '',
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed', result);
+      this.transactions.push(result);
+      if (this.transactionsTable) this.transactionsTable.renderRows();
+      console.log('The dialog was closed', result, this.transactions);
     });
   }
 }
@@ -51,7 +64,7 @@ export class TransactionInsertComponent {
     @Inject(MAT_DIALOG_DATA) public data: Transaction
   ) {}
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  submitDialog() {
+    this.dialogRef.close(this.data);
   }
 }

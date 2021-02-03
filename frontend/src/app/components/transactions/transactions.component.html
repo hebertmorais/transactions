@@ -1,7 +1,7 @@
 <div class="main-container">
   <h1 id="page-title">CNPJ: {{ currentCnpj }}</h1>
-  <div class="transactions-table-container">
-    <table mat-table [dataSource]="transactions" class="mat-elevation-z8">
+  <div *ngIf="transactions.length" class="transactions-table-container">
+    <table #transactionsTable mat-table [dataSource]="transactions" class="mat-elevation-z8">
       <ng-container matColumnDef="descricao">
         <th mat-header-cell *matHeaderCellDef>Descrição</th>
         <td mat-cell *matCellDef="let transaction">
@@ -24,8 +24,11 @@
     </table>
     <a id="back-link" routerLink="/" routerLinkActive="active">Home</a>
   </div>
+  <div class="empty-state" *ngIf="!transactions.length">
+    <span>Adicione sua primeira transação</span>
+  </div>
   <div class="example-button-container">
-    <button (click)="addTransaction()" mat-mini-fab color="accent" aria-label="Add transaction button">
+    <button (click)="addTransaction()" mat-mini-fab color="primary" aria-label="Add transaction button">
       <mat-icon aria-hidden="false" aria-label="Add icon">add</mat-icon>
     </button>
   </div>

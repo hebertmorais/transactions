@@ -1,4 +1,5 @@
-table td {
+table td,
+table th {
   padding: 12px;
 }
 button {
@@ -16,7 +17,14 @@ button {
   justify-content: center;
   align-items: center;
 }
+table {
+  width: 100%;
+  max-width: 500px;
+}
 #back-link {
   margin: 16px;
   color: white;
+}
+.empty-state {
+  text-align: center;
 }
