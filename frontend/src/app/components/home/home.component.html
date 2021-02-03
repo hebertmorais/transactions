@@ -1,7 +1,15 @@
-<input [(ngModel)]="cnpjInput" name="input" />
-<button (click)="addCnpj()">Adicionar CNPJ</button>
-<ul>
-  <li *ngFor="let cnpj of cnpjList">
-    <a  [routerLink]="" (click)="openTransactions(cnpj)">{{ cnpj }}</a>
-  </li>
-</ul>
+<div class="cnpj-container">
+  <ul class="cnpj-list">
+    <li class="cnpj-item">
+      <mat-card class="cnpj-insert">
+        <input placeholder="ex: 57.312.254/0001-62" [(ngModel)]="cnpjInput" name="input" />
+        <button (click)="addCnpj()" mat-raised-button color="primary">
+          Adicionar CNPJ
+        </button>
+      </mat-card>
+    </li>
+    <li class="cnpj-item" *ngFor="let cnpj of cnpjList">
+      <mat-card (click)="openTransactions(cnpj)">{{ cnpj }}</mat-card>
+    </li>
+  </ul>
+</div>

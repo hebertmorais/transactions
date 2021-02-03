@@ -1,0 +1,43 @@
+.cnpj-container {
+  width: 100vw;
+  height: 100vh;
+}
+.cnpj-insert {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px;
+}
+.cnpj-insert input {
+  background: #595959;
+  border: none;
+  height: 30px;
+  width: 90%;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  color: white;
+  padding: 4px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+.cnpj-insert input:focus {
+  outline: none;
+}
+.cnpj-list {
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.cnpj-item {
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+}
+.cnpj-item mat-card {
+  border-radius: 0;
+  border-bottom: 1px solid #383838;
+}

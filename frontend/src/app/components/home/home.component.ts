@@ -5,24 +5,22 @@ import { CnpjService } from 'src/app/services/cnpj.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
-  cnpjInput: string = "";
+  cnpjInput: string = '';
   cnpjList: Set<string> = new Set();
 
-  constructor(private cnpjService: CnpjService, private router: Router) { }
+  constructor(private cnpjService: CnpjService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   addCnpj() {
     this.cnpjList.add(this.cnpjInput);
   }
 
-  openTransactions(cnpj: string){
-    this.cnpjService.setCurrentCnpj(cnpj)
+  openTransactions(cnpj: string) {
+    this.cnpjService.setCurrentCnpj(cnpj);
     this.router.navigate(['/transactions']);
   }
 }
