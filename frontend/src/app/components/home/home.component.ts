@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.cnpjService.getAllEstablishments().subscribe((data: any) => {
-      console.log(data);
       this.establishments = data;
     });
   }
@@ -28,6 +27,7 @@ export class HomeComponent implements OnInit {
       .addEstablishment(newEstablishment)
       .subscribe((data: any) => {
         this.establishments.push(data);
+        this.cnpjInput = "";
       });
   }
 

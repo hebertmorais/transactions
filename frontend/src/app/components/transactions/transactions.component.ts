@@ -36,7 +36,6 @@ export class TransactionsComponent implements OnInit {
       .subscribe((data: any) => {
         this.transactions.data = data;
         if (this.transactionsTable) this.transactionsTable.renderRows();
-        console.log("data", this.transactions, data);
       });
   }
 
@@ -61,7 +60,6 @@ export class TransactionsComponent implements OnInit {
             if (this.transactionsTable) this.transactionsTable.renderRows();
           });
       }
-      console.log('The dialog was closed', result, this.transactions);
     });
   }
 
