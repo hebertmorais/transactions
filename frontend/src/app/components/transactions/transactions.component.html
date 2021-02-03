@@ -1,9 +1,14 @@
 <div class="main-container">
   <h1 id="page-title">CNPJ: {{ currentCnpj }}</h1>
   <div *ngIf="transactions.data.length" class="transactions-table-container">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Busque por descrição ou cliente" #input>
-    </mat-form-field>
+    <div class="input-container">
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Busque por descrição ou cliente"
+        #input
+      />
+    </div>
 
     <table
       #transactionsTable
@@ -35,7 +40,9 @@
         [routerLink]="'/transactions/' + row.id"
       ></tr>
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">Nenhuma transação encontrada para a busca: "{{input.value}}"</td>
+        <td class="mat-cell" colspan="4">
+          Nenhuma transação encontrada para a busca: "{{ input.value }}"
+        </td>
       </tr>
     </table>
     <a id="back-link" routerLink="/" routerLinkActive="active">Home</a>
