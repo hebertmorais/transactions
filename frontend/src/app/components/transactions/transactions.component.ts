@@ -11,6 +11,7 @@ export class TransactionsComponent implements OnInit {
 
   currentCnpj: string = '';
   transactions: Transaction[] = []
+  displayedColumns = ["descricao", "cliente", "valor"];
 
   constructor(private cnpjService: CnpjService, private transactionsService: TransactionsService) {}
 

@@ -1,0 +1,19 @@
+table td {
+  padding: 12px;
+}
+#page-title {
+  text-align: center;
+}
+.main-container {
+  padding: 16px;
+}
+.transactions-table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#back-link {
+  margin: 16px;
+  color: white;
+}
