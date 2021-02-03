@@ -7,36 +7,12 @@
       "valor": "R$ 50,00",
       "descricao": "Almoço em restaurante",
       "data": "2021-02-03T12:50:13.000Z"
-    },
-    {
-      "estabelecimento": "64.809.799/0001-44",
-      "cliente": "12312313123",
-      "descricao": "Jantar em restaurante",
-      "valor": "R$ 19,00",
-      "data": "2021-02-03T13:42:41.398Z",
-      "id": 2
-    },
-    {
-      "estabelecimento": "12.039.812/3123-23",
-      "cliente": "12312323123",
-      "descricao": "123123",
-      "valor": "R$ 12.331",
-      "data": "2021-02-03T13:43:42.278Z",
-      "id": 3
     }
   ],
   "establishments": [
     {
       "id": 1,
       "cnpj": "64.809.799/0001-44"
-    },
-    {
-      "cnpj": "31.231.231/2312-32",
-      "id": 2
-    },
-    {
-      "cnpj": "12.039.812/3123-23",
-      "id": 3
     }
   ]
 }

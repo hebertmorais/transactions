@@ -1,0 +1,14 @@
+{
+  "name": "json-server-deploy",
+  "version": "1.0.0",
+  "description": "Simple json database to deploy to the host",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Jesper Orb",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.2"
+  }
+}
