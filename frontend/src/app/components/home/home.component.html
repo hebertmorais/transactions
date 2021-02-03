@@ -2,8 +2,9 @@
   <ul class="cnpj-list">
     <li class="cnpj-item">
       <mat-card class="cnpj-insert">
-        <input placeholder="ex: 57.312.254/0001-62" [(ngModel)]="cnpjInput" name="input" />
-        <button (click)="addCnpj()" mat-raised-button color="primary">
+        <input [dropSpecialCharacters]="false" mask="00.000.000/0000-00" placeholder="ex: 57.312.254/0001-62" [(ngModel)]="cnpjInput" name="input" />
+        <span *ngIf="hasCnpj()">Estabelecimento com CNPJ existente</span>
+        <button [disabled]="hasCnpj() || cnpjInput.length < 18" [disabled] (click)="addCnpj()" mat-raised-button color="primary">
           Adicionar CNPJ
         </button>
       </mat-card>

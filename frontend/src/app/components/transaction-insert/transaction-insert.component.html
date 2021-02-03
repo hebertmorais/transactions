@@ -14,11 +14,23 @@
       placeholder="Ex: 098.561.660-12"
       matInput
       [(ngModel)]="data.cliente"
+      mask="000.000.000-00"
+      maxlength="14"
     />
   </li>
   <li>
     <label>Valor *</label>
-    <input placeholder="Ex: R$ 50,00" matInput [(ngModel)]="data.valor" />
+    <input
+      placeholder="Ex: R$ 50,00"
+      matInput
+      [(ngModel)]="data.valor"
+      mask="separator.2"
+      [thousandSeparator]="'.'"
+      [decimalMarker]="','"
+      prefix="R$ "
+      type="text"
+      [dropSpecialCharacters]="false"
+    />
   </li>
   <li>
     <button mat-dialog-close mat-button>Cancelar</button>
@@ -27,7 +39,7 @@
       mat-raised-button
       color="primary"
       mat-dialog-close
-      [disabled]="!data.descricao || !data.valor || !data.cliente"
+      [disabled]="!data.descricao || !data.valor || !data.cliente || data.cliente.length < 11"
     >
       Adicionar
     </button>

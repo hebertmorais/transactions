@@ -35,4 +35,13 @@ export class HomeComponent implements OnInit {
     this.cnpjService.setCurrentCnpj(cnpj);
     this.router.navigate(['/transactions']);
   }
+
+  hasCnpj(): boolean {
+    for (let establishment of this.establishments) {
+      if (establishment.cnpj === this.cnpjInput) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
