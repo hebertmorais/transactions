@@ -31,7 +31,11 @@ export class TransactionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentCnpj = this.cnpjService.currentCnpj;
-    this.transactions = this.transactionsService.getTransactions();
+    this.transactionsService
+      .getAllTransactionsFromCnpj(this.currentCnpj)
+      .subscribe((data: any) => {
+        this.transactions = data;
+      });
   }
 
   addTransaction(): void {
@@ -47,6 +51,11 @@ export class TransactionsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
+        this.transactionsService
+          .addTransaction(result)
+          .subscribe((data: any) => {
+            this.transactions.push(data);
+          });
         this.transactions.push(result);
         if (this.transactionsTable) this.transactionsTable.renderRows();
       }

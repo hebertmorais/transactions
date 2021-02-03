@@ -20,8 +20,9 @@ export class TransactionDetailsComponent implements OnInit {
     const transactionId = parseInt(
       this.route.snapshot.paramMap.get('id') || '0'
     );
-    this.currentTransaction = this.transactionsService.getTransaction(
-      transactionId
-    );
+
+    this.transactionsService.getTransaction(transactionId).subscribe((data:any)=>{
+      this.currentTransaction = data;
+    });
   }
 }

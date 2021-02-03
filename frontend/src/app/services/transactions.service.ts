@@ -1,26 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Transaction } from '../models/transaction.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TransactionsService {
   private _transactions: Transaction[] = [];
-  constructor() {}
+  BASE_URL = 'http://localhost:3000';
 
-  getTransactions(): Transaction[] {
-    return this._transactions;
+  constructor(private http: HttpClient) {}
+
+  getAllTransactionsFromCnpj(cnpj: string) {
+    return this.http.get<Transaction>(
+      `${this.BASE_URL}/transactions?estabelecimento=${cnpj}`
+    );
   }
 
-  getTransaction(id: number): Transaction {
-    let foundTransaction: Transaction = <Transaction>{};
+  getTransaction(id: number) {
+    return this.http.get<Transaction>(`${this.BASE_URL}/transactions/${id}`);
+  }
 
-    for (let transaction of this._transactions) {
-      if (transaction.id === id) {
-        foundTransaction = transaction;
-        break;
-      }
-    }
-    return foundTransaction;
+  addTransaction(transaction: Transaction) {
+    return this.http.post<Transaction>(
+      `${this.BASE_URL}/transactions`,
+      transaction,
+      {}
+    );
   }
 }
