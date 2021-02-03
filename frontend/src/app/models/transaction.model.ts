@@ -4,4 +4,5 @@ export interface Transaction {
   cliente: string;
   valor: number;
   descricao: string;
+  data?: string;
 }
