@@ -1,0 +1,17 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+input {
+  background: #595959;
+  border: none;
+  height: 30px;
+  width: 90%;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  color: white;
+  padding: 4px;
+}
+.cnpj-insert input:focus {
+  outline: none;
+}

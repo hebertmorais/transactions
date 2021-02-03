@@ -12,13 +12,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TransactionInsertComponent } from './components/transactions/transactions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TransactionsComponent,
-    TransactionDetailsComponent,
+    TransactionInsertComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,9 @@ import { MatTableModule } from '@angular/material/table';
     MatCardModule,
     MatGridListModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,9 @@
 table td {
   padding: 12px;
 }
+button {
+  float: right;
+}
 #page-title {
   text-align: center;
 }
