@@ -7,7 +7,7 @@ import { Establishment } from '../models/establishment.model';
 })
 export class CnpjService {
   CNPJ_KEY = 'CNPJ';
-  BASE_URL = 'http://localhost:3000';
+  BASE_URL = 'https://shipay.herokuapp.com/transactions';
 
   private _currentCnpj: string = '';
 
